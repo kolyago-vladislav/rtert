@@ -1,0 +1,32 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: task-service
+    profiles:
+      active: dev
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:${DATABASE_URL:postgresql://localhost:5432/postgres}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+#    drop-first: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://backend-keycloak-auth:8080/realms/ITM-Platform

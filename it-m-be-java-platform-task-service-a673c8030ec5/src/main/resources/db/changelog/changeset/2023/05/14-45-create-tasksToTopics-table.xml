@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="202305091445" author="Diana Teslyuk">
+        <createTable tableName="tasks_to_topics">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="task_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="topic_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="task_id" baseTableName="tasks_to_topics"
+                                 constraintName="fk_tasks_to_topics_task_id" referencedColumnNames="id"
+                                 referencedTableName="tasks"/>
+        <addForeignKeyConstraint baseColumnNames="topic_id" baseTableName="tasks_to_topics"
+                                 constraintName="fk_tasks_to_topics_topic_id" referencedColumnNames="id"
+                                 referencedTableName="topic"/>
+    </changeSet>
+</databaseChangeLog>

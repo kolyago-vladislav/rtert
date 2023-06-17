@@ -1,0 +1,8 @@
+tasks:
+  - id: "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    text: "This is a sample task text"
+    title: "Sample Task"
+
+  - id: "3fa85f64-5717-4562-b3fc-2c963f66afa9"
+    text: "This is another sample task text"
+    title: "Another Sample Task"

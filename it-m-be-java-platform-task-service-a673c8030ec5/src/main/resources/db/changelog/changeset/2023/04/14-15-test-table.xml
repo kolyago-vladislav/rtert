@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+<!--
+файл с ченьдж сетом должен располагаться по пути - год / месяц / день-час-описание-файла
+Пример - 2022/08/05-01-init.xml.
+
+Id ченьджсета по формату 2022 08 05 01 05 должен выглядеть как 202208050105
+-->
+    <changeSet id="202304141530" author="Иван Плеханов">
+        <createTable tableName="test_table">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="test_field" type="text">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

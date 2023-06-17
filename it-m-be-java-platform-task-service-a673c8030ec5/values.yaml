@@ -1,0 +1,16 @@
+extraEnv:
+  - name: DATABASE_URL
+    valueFrom:
+      configMapKeyRef:
+        name: itm-cm
+        key: DB_URL_USER_SERVICE
+  - name: DATABASE_USERNAME
+    valueFrom:
+      secretKeyRef:
+        name: itm-secret
+        key: DATABASE_USERNAME
+  - name: DATABASE_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: itm-secret
+        key: DATABASE_PASSWORD
